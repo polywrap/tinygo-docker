@@ -30,7 +30,7 @@ jobs:
           tags: |
             type=sha,format=long
             type=raw,value=latest
-            type=semver,pattern=${{env.TINYGO_RELEASE}}
+            type=semver,pattern={{version}},value=${{env.TINYGO_RELEASE}}
           labels: |
             org.opencontainers.image.title=TinyGo
             org.opencontainers.image.description=Go compiler for small places. Microcontrollers, WebAssembly, and command-line tools. Based on LLVM.
