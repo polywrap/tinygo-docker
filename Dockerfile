@@ -13,9 +13,8 @@ RUN wget https://dl.google.com/go/go${GO_RELEASE}.${TARGETOS}-${TARGETARCH}.tar.
     tar xfv go${GO_RELEASE}.${TARGETOS}-${TARGETARCH}.tar.gz -C /usr/local && \
     find /usr/local/go -mindepth 1 -maxdepth 1 ! -name 'src' ! -name 'VERSION' ! -name 'bin' ! -name 'pkg' -exec rm -rf {} +
 
-
-ENV TINYGO_RELEASE=0.28.1-polywrap.1
-RUN wget https://github.com/polywrap/tinygo/releases/download/v${TINYGO_RELEASE}/tinygo.${TARGETOS}-${TARGETARCH}.tar.gz && \
+ENV TINYGO_RELEASE v0.28.1-polywrap.2
+RUN wget https://github.com/polywrap/tinygo/releases/download/${TINYGO_RELEASE}/tinygo.${TARGETOS}-${TARGETARCH}.tar.gz && \
     tar xfv tinygo.${TARGETOS}-${TARGETARCH}.tar.gz -C /usr/local
 
 
