@@ -18,6 +18,9 @@ jobs:
         name: Checkout
         uses: actions/checkout@v3
       -
+        name: Read VERSION into env.TINYGO_RELEASE
+        run: echo TINYGO_RELEASE=$(cat VERSION) >> $GITHUB_ENV
+      -
         name: Docker meta
         id: meta
         uses: docker/metadata-action@v4
@@ -55,3 +58,5 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+        env:
+          TINYGO_RELEASE: ${{env.TINYGO_RELEASE}}
